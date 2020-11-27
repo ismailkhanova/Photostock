@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+
+
+  <div class="col-sm-4">
+    <div class="card">
+      <img class="card-img-top" src="{{ pic.small_picture.url }}" alt="{{ pic.title }}">
+      <p class="card-text" style="text-align: center; font-family: Roboto; font-size:1.2em;">{{ pic.description }}</p>
+      {% if download == True%}
+        <p class="card-text" style="text-align: center; font-family: Roboto; font-size:1.2em;"><a href="{{ pic.picture.url }}">скачать в хорошем качетсве</a></p>
+      {% endif %}
+       <div class="card-body">
+     </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

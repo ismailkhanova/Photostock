@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <div class="row">
+
+    {% for pic in pic_list %}
+
+  <div class="col-sm-4">
+    <div class="card">
+      <img class="card-img-top" src="{{ pic.small_picture.url }}" alt="{{ pic.title }}">
+      <p class="card-text" style="text-align: center; font-family: Roboto; font-size:1.5em;"><a href="{% url 'picture_detail' pic.pk %}" style="color: #181616;">{{ pic.title }}</a></p>
+
+        {% if request.user.is_authenticated %}
+          <p class="card-text"><a href="{% url 'picture_update' pic.pk %}" style="color: #000000; font-size: 25px; margin-left: 10px;" ><i class="fas fa-edit"></i></a></p>
+        <p class="card-text"><a href="{% url 'picture_delete' pic.pk %}" style="color: black; font-size: 25px; margin-left: 10px; "><i class="fas fa-trash-alt"></i> </a></p>
+        {% endif %}
+        <p style="text-align: right; margin-right: 10px; font-family: Roboto; font-size:1.2em;">Категория: {{ pic.category }}</p>
+
+      <p class="card-text" style="text-align: right; margin-right: 10px; font-family: Roboto; font-size:1.2em;">Автор: {{ pic.user }}</p>
+       <div class="card-body">
+     </div>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+{% endblock %}
